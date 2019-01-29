@@ -1,0 +1,7 @@
+{
+  "name": "projNUCAPfront",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
