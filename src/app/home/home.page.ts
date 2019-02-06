@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -8,4 +10,22 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  constructor( private router: Router, public menu:MenuController ) { 
+
+  }
+
+  ionViewWillEnter() {
+    this.menu.close;
+  }
+
+  ionViewDidLeave() {
+    this.menu.open;
+  }
+
+  login(){
+    this.router.navigateByUrl('alunos');
+  }
+
 }
+
+
