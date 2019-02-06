@@ -14,12 +14,16 @@ export class HomePage {
 
   }
 
-  ionViewWillEnter() {
-    this.menu.close;
+  ionViewWillEnter () {
+    this.menu.swipeEnable(false);
+    this.menu.enable(false);
+    console.log("1 - Funcionou");
   }
 
   ionViewDidLeave() {
-    this.menu.open;
+    this.menu.swipeEnable(true);
+    this.menu.enable(true);
+    console.log("2 - Funcionou");
   }
 
   login(){
