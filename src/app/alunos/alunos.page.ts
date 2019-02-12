@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AprendizService } from 'src/services/domain/aprendiz.service';
 
 @Component({
   selector: 'app-alunos',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlunosPage implements OnInit {
 
-  constructor() { }
+  constructor(public aprendizService:AprendizService  ) { }
 
   ngOnInit() {
+    this.aprendizService.findAll().subscribe(response => {
+      console.log(response);
+    },
+    error => {
+      console.log(error);
+    }); 
   }
 
 }
