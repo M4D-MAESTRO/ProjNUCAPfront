@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AprendizService } from 'src/services/domain/aprendiz.service';
+import { Aprendiz_InstituicaoDTO } from 'src/models/aprendiz_instituicao.dto';
 
 @Component({
   selector: 'app-alunos',
@@ -8,15 +9,20 @@ import { AprendizService } from 'src/services/domain/aprendiz.service';
 })
 export class AlunosPage implements OnInit {
 
-  constructor(public aprendizService:AprendizService  ) { }
+  itens: Aprendiz_InstituicaoDTO[];
+
+  constructor(public aprendizService: AprendizService) { }
 
   ngOnInit() {
     this.aprendizService.findAll().subscribe(response => {
+      this.itens = response;
       console.log(response);
     },
-    error => {
-      console.log(error);
-    }); 
+      error => {
+        console.log(error);
+      });
   }
+
+  
 
 }
