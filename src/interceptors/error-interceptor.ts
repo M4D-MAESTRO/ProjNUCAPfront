@@ -3,7 +3,8 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HTTP_INTERCEPTORS
 import { Observable } from 'rxjs'; // IMPORTANTE: IMPORT ATUALIZADO
 import { catchError } from 'rxjs/operators';
 
-
+//Concertei o INTERCEPTOR! 
+//100% funcional agora ZÉÉÉÉÉÉÉÉÉÉÉ
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 

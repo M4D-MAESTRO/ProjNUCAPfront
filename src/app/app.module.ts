@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AprendizService } from 'src/services/domain/aprendiz.service';
 import { ErrorInterceptorProvider } from 'src/interceptors/error-interceptor';
+import { AuthService } from 'src/services/auth.service';
+import { StorageService } from 'src/services/storage.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +28,9 @@ import { ErrorInterceptorProvider } from 'src/interceptors/error-interceptor';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AprendizService,
-    ErrorInterceptorProvider 
+    ErrorInterceptorProvider,
+    AuthService,
+    StorageService 
   ],
   bootstrap: [AppComponent]
 })
