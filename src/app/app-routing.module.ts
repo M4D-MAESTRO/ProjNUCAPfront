@@ -11,7 +11,9 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
   },
-  { path: 'alunos', loadChildren: './alunos/alunos.module#AlunosPageModule' }
+  { path: 'alunos', loadChildren: './alunos/alunos.module#AlunosPageModule' },  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
+
 
 ];
 
