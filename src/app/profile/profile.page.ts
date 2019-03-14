@@ -4,6 +4,8 @@ import { AprendizCompletoDTO } from 'src/models/aprendizCompleto.dto';
 import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
 import { API_CONFIG } from 'src/config/api.config';
 
+
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -12,10 +14,14 @@ import { API_CONFIG } from 'src/config/api.config';
 export class ProfilePage implements OnInit {
 
   aprendiz: AprendizCompletoDTO;
+ 
+  
 
   constructor( 
     public storage: StorageService,
+    //public navParams: NavParams, 
     public aprendizServiceCompleto: AprendizCompleto) { }
+    
 
   ngOnInit() {
     let localUser = this.storage.getLocalUser();
@@ -25,7 +31,14 @@ export class ProfilePage implements OnInit {
         this.aprendiz = response;
         // buscar imagem
       },
-      error => {});
+      error => {
+        if (error.status == 403) {
+          this.navCtrl.setRoot('HomePage');
+        }
+      });
+  }
+  else {
+    this.navCtrl.setRoot('HomePage');
   }
  }
 
