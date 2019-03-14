@@ -14,6 +14,7 @@ import { ErrorInterceptorProvider } from 'src/interceptors/error-interceptor';
 import { AuthService } from 'src/services/auth.service';
 import { StorageService } from 'src/services/storage.service';
 import { HttpModule } from '@angular/http';
+import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +33,8 @@ import { HttpModule } from '@angular/http';
     AprendizService,
     ErrorInterceptorProvider,
     AuthService,
-    StorageService 
+    StorageService,
+    AprendizCompleto 
   ],
   bootstrap: [AppComponent]
 })
