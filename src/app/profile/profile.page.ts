@@ -29,12 +29,12 @@ export class ProfilePage implements OnInit {
   }
  }
 
- getImageExistis() {
+/* getImageExistis() {
    this.aprendizServiceCompleto.getImageFromBucket(this.aprendiz.id)
    .subscribe(response => {
      this.aprendiz.imageUrl = `${API_CONFIG.bucketBaseUrl}cp${this.aprendiz.id}.jpg`;
    },
    error => {});
- }
+ }*/
 
 }

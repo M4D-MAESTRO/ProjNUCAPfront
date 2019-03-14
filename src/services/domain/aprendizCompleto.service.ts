@@ -13,13 +13,7 @@ export  class AprendizCompleto {
     }
 
     findByEmail(email: string) : Observable<AprendizCompletoDTO> {
-
-        let token = this.storage.getLocalUser().token;
-        let authHeader = new HttpHeaders({'Authorization': 'Bearer ' + token});
-
-        return this.http.get<AprendizCompletoDTO>(
-            `${API_CONFIG.baseUrl}aprendiz/email?value=${email}`, 
-            {'headers': authHeader});
+        return this.http.get<AprendizCompletoDTO>(`${API_CONFIG.baseUrl}aprendiz/email?value=${email}`);
         
     }
 

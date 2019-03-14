@@ -15,6 +15,7 @@ import { AuthService } from 'src/services/auth.service';
 import { StorageService } from 'src/services/storage.service';
 import { HttpModule } from '@angular/http';
 import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
+import { AuthInterceptorProvider } from 'src/interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +32,7 @@ import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AprendizService,
+    AuthInterceptorProvider,
     ErrorInterceptorProvider,
     AuthService,
     StorageService,
