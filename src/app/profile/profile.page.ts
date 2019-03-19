@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StorageService } from 'src/services/storage.service';
 import { AprendizCompletoDTO } from 'src/models/aprendizCompleto.dto';
 import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
@@ -11,7 +12,7 @@ import { API_CONFIG } from 'src/config/api.config';
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
-export class ProfilePage implements OnInit {
+export class ProfilePage  {
 
   aprendiz: AprendizCompletoDTO;
  
@@ -19,11 +20,12 @@ export class ProfilePage implements OnInit {
 
   constructor( 
     public storage: StorageService,
+    private router: Router,
     //public navParams: NavParams, 
     public aprendizServiceCompleto: AprendizCompleto) { }
     
 
-  ngOnInit() {
+    ionViewWillEnter () {
     let localUser = this.storage.getLocalUser();
     if (localUser && localUser.email) {
       this.aprendizServiceCompleto.findByEmail(localUser.email)
@@ -33,12 +35,12 @@ export class ProfilePage implements OnInit {
       },
       error => {
         if (error.status == 403) {
-          this.navCtrl.setRoot('HomePage');
+          this.router.navigateByUrl('HomePage');
         }
       });
   }
   else {
-    this.navCtrl.setRoot('HomePage');
+    this.router.navigateByUrl('HomePage');
   }
  }
 

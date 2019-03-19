@@ -13,8 +13,8 @@ import { AuthService } from 'src/services/auth.service';
 export class HomePage {
 
   creds : CredenciaisDTO = {
-     email: "",
-     senha: ""
+     email: "diasreis@gmail.com",
+     senha: "senha5"
   };
 
   constructor( private router: Router, public menu:MenuController, public auth: AuthService ) { 
