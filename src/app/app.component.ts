@@ -24,7 +24,13 @@ export class AppComponent {
       title: 'Alunos',
       url: '/alunos',
       icon: 'home'
+    },
+    {
+      title: 'Sair',
+      url: '',
+      icon: 'home'
     }
+
   ];
 
   constructor(

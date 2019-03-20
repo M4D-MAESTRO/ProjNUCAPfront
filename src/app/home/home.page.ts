@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { CredenciaisDTO } from 'src/models/credenciais.dto';
@@ -10,8 +10,9 @@ import { AuthService } from 'src/services/auth.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-
+export class HomePage /*implements OnInit*/{
+  
+  
   creds : CredenciaisDTO = {
      email: "diasreis@gmail.com",
      senha: "senha5"
@@ -32,6 +33,26 @@ export class HomePage {
     this.menu.enable(true);
     console.log("2 - Funcionou");
   }
+  ionViewDidEnter() {
+    this.auth.refreshToken()
+    .subscribe(response => {
+      this.auth.successfulLogin(response.headers.get('Authorization'));
+      this.router.navigateByUrl('alunos');
+      console.log("henrique é cuck");
+    },
+    error => {});
+    
+
+  }
+  /*ngOnInit(): void {
+    this.auth.refreshToken()
+    .subscribe(response => {
+      this.auth.successfulLogin(response.headers.get('Authorization'));
+      this.router.navigateByUrl('alunos');
+    },
+    error => {});
+  }*/
+
 
   login(){
     this.auth.authenticate(this.creds)
@@ -42,6 +63,7 @@ export class HomePage {
     error => {});
     
   }
+  
 
 }
 
