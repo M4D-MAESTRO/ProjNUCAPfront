@@ -15,11 +15,7 @@ export class AppComponent {
       url: '/home',
       icon: 'home'
     },
-    {
-      title: 'Profile',
-      url: '/profile',
-      icon: 'home'
-    },
+    
     {
       title: 'Alunos',
       url: '/alunos',
@@ -29,6 +25,12 @@ export class AppComponent {
       title: 'Sair',
       url: '',
       icon: 'home'
+    },
+
+    {
+      title: 'Teste',
+      url: '/teste',
+      icon: 'Teste'
     }
 
   ];

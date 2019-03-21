@@ -28,6 +28,7 @@ export class AuthService {
      }
 
      refreshToken() {
+        console.log(localStorage.getItem('localUser'));
         return  this.http.post(
              `${API_CONFIG.baseUrl}auth/refresh_token`, 
              {},

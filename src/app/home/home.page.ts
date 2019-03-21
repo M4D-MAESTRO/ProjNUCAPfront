@@ -38,7 +38,7 @@ export class HomePage /*implements OnInit*/{
     .subscribe(response => {
       this.auth.successfulLogin(response.headers.get('Authorization'));
       this.router.navigateByUrl('alunos');
-      console.log("henrique é cuck");
+      console.log(localStorage.getItem('localUser'));
     },
     error => {});
     
@@ -62,6 +62,12 @@ export class HomePage /*implements OnInit*/{
     },
     error => {});
     
+  }
+
+  signup() {
+    this.router.navigateByUrl('SignupPage');
+
+
   }
   
 
