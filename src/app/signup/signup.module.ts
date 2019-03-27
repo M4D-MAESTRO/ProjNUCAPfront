@@ -9,8 +9,8 @@ import { SignupPage } from './signup.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: SignupPage
+    path: '', 
+    component: SignupPage,
   }
 ];
 

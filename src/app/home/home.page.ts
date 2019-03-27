@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController, NavParams } from '@ionic/angular';
 import { CredenciaisDTO } from 'src/models/credenciais.dto';
 import { AuthService } from 'src/services/auth.service';
 
@@ -18,7 +18,12 @@ export class HomePage /*implements OnInit*/{
      senha: "senha5"
   };
 
-  constructor( private router: Router, public menu:MenuController, public auth: AuthService ) { 
+  constructor( 
+      private router: Router,
+      public menu:MenuController,
+      public auth: AuthService, 
+      /*public navCtrl: NavController, 
+      public navParams: NavParams*/ ) { 
 
   }
 
@@ -65,8 +70,7 @@ export class HomePage /*implements OnInit*/{
   }
 
   signup() {
-    this.router.navigateByUrl('SignupPage');
-
+    this.router.navigateByUrl('signup');
 
   }
   
