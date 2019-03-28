@@ -15,8 +15,6 @@ import { API_CONFIG } from 'src/config/api.config';
 export class ProfilePage  {
 
   aprendiz: AprendizCompletoDTO;
- 
-  
 
   constructor( 
     public storage: StorageService,

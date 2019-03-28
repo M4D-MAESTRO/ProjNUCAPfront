@@ -16,6 +16,8 @@ import { StorageService } from 'src/services/storage.service';
 import { HttpModule } from '@angular/http';
 import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
 import { AuthInterceptorProvider } from 'src/interceptors/auth-interceptor';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +27,9 @@ import { AuthInterceptorProvider } from 'src/interceptors/auth-interceptor';
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule     
   ],
   providers: [
     StatusBar,

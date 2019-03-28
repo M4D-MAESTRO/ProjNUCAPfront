@@ -30,22 +30,24 @@ export class HomePage /*implements OnInit*/{
   ionViewWillEnter () {
     this.menu.swipeEnable(false);
     this.menu.enable(false);
-    console.log("1 - Funcionou");
+    console.clear();
+    console.log(localStorage.getItem('localUser'));
+    
+    this.auth.refreshToken()
+    .subscribe(response => {
+      this.auth.successfulLogin(response.headers.get('Authorization'));
+      this.router.navigateByUrl('alunos');
+    },
+    error => {});
+    
   }
 
   ionViewDidLeave() {
     this.menu.swipeEnable(true);
     this.menu.enable(true);
-    console.log("2 - Funcionou");
   }
+
   ionViewDidEnter() {
-    this.auth.refreshToken()
-    .subscribe(response => {
-      this.auth.successfulLogin(response.headers.get('Authorization'));
-      this.router.navigateByUrl('alunos');
-      console.log(localStorage.getItem('localUser'));
-    },
-    error => {});
     
 
   }
