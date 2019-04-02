@@ -23,7 +23,7 @@ export class SignupPage implements OnInit {
     public estadoService: EstadoService) { 
 
     this.formGroup = this.formBuilder.group({
-      nome: ['Henrique Castrado',[Validators.required, Validators.minLength(5), Validators.maxLength(120)] ],
+      nome: ['Henrique Castrado',[Validators.required, Validators.minLength(3), Validators.maxLength(120)] ],
       email: ['Henri@hotmail.com',[Validators.required, Validators.email] ],
       tipo : ['1', [Validators.required]],
       cpf : ['06134596280', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
@@ -31,7 +31,7 @@ export class SignupPage implements OnInit {
       logradouro : ['Rua Via', [Validators.required]],
       numero : ['25', [Validators.required]],
       complemento : ['Apto 3', []],
-      bairro : ['Copacabana', []],
+      bairro : ['Copacabana', [Validators.required]],
       cep : ['10828333', [Validators.required]],
       telefone1 : ['977261827', [Validators.required]],
       telefone2 : ['', []],
@@ -41,22 +41,14 @@ export class SignupPage implements OnInit {
     });
   }
 
-  ionViewDidLoad() {
-    this.estadoService.findAll().subscribe(response => {
-      this.estados = response;
-      this.formGroup.controls.estadoId.setValue(this.estados[0].id);
-      this.updateCidades();
-    },
-    error => {})
-  }
-
   updateCidades() {
     let estado_id = this.formGroup.value.estadoId;
     this.cidadeService.findAll(estado_id)
     .subscribe(response => {
       this.cidades = response ;
       this.formGroup.controls.cidadeId.setValue(null);
-    })
+    },
+    error => {});
   }
 
   signupUser() {
@@ -64,6 +56,12 @@ export class SignupPage implements OnInit {
   }
 
   ngOnInit() {
+    this.estadoService.findAll().subscribe(response => {
+      this.estados = response;
+      this.formGroup.controls.estadoId.setValue(this.estados[0].id); 
+      this.updateCidades();
+    },
+    error => {});
   }
 
 }
