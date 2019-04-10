@@ -4,6 +4,10 @@ import { CidadeService } from 'src/services/domain/cidade.service';
 import { EstadoService } from 'src/services/domain/estado.service';
 import { EstadoDTO } from 'src/models/estado.dto';
 import { CidadeDTO } from 'src/models/cidade.dto';
+import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
+import { AlertController } from '@ionic/angular';
+import { text } from '@angular/core/src/render3';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,24 +24,27 @@ export class SignupPage implements OnInit {
   constructor(
     public formBuilder: FormBuilder, 
     public cidadeService: CidadeService,
-    public estadoService: EstadoService) { 
+    public estadoService: EstadoService,
+    public aprendizService: AprendizCompleto,
+    private router: Router,
+    public alertCtrl: AlertController) { 
 
     this.formGroup = this.formBuilder.group({
       nome: ['Henrique Castrado',[Validators.required, Validators.minLength(3), Validators.maxLength(120)] ],
       email: ['Henri@hotmail.com',[Validators.required, Validators.email] ],
-      tipo : ['1', [Validators.required]],
       cpf : ['06134596280', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
       senha : ['123', [Validators.required]],
-      logradouro : ['Rua Via', [Validators.required]],
-      numero : ['25', [Validators.required]],
+      endereco : ['Rua Via', [Validators.required]],
       complemento : ['Apto 3', []],
       bairro : ['Copacabana', [Validators.required]],
-      cep : ['10828333', [Validators.required]],
-      telefone1 : ['977261827', [Validators.required]],
-      telefone2 : ['', []],
-      telefone3 : ['', []],
+      telefone : ['977261827', [Validators.required]],
+      cpfResp : [null, [Validators.required]],
+      telefoneResp : [null, [Validators.required]],
       estadoId : [null, [Validators.required]],
-      cidadeId : [null, [Validators.required]]
+      cidadeId : [null, [Validators.required]],
+      idTrabalho : [1, [Validators.required]],
+      idEscola : [1, [Validators.required]],
+      idEmpresaQuali : [1, [Validators.required]]
     });
   }
 
@@ -52,7 +59,30 @@ export class SignupPage implements OnInit {
   }
 
   signupUser() {
-    console.log("Enviou o form");
+    
+    this.aprendizService.insert(this.formGroup.value)
+    .subscribe(response => {
+      this.showInsertOk();
+    },
+    error => {});
+    
+  }
+
+  async showInsertOk() {
+    const alert = await this.alertCtrl.create({
+      header: 'Sucesso!',
+      message: 'Cadastro efetuado com sucesso',
+      buttons: [
+        {
+        text: 'ok',
+        handler: () => {
+          this.router.navigateByUrl('home');
+        }
+        }
+      ]
+    });
+    await alert.present()
+
   }
 
   ngOnInit() {

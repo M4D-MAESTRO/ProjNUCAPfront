@@ -22,4 +22,14 @@ export  class AprendizCompleto {
         return this.http.get(url, {responseType : 'blob'});
     }*/
 
+    insert(obj : AprendizCompletoDTO) {
+        return this.http.post(
+            `${API_CONFIG.baseUrl}aprendiz`, 
+            obj,
+            { 
+                observe: 'response', 
+                responseType: 'text'
+            }
+        ); 
+     }
 }

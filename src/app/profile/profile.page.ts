@@ -33,12 +33,12 @@ export class ProfilePage  {
       },
       error => {
         if (error.status == 403) {
-          this.router.navigateByUrl('HomePage');
+          this.router.navigateByUrl('home');
         }
       });
   }
   else {
-    this.router.navigateByUrl('HomePage');
+    this.router.navigateByUrl('home');
   }
  }
 

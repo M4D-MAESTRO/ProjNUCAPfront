@@ -12,7 +12,7 @@ export class AprendizService{
     }
 
     findAll() : Observable<Aprendiz_InstituicaoDTO[]>{
-        return this.http.get<Aprendiz_InstituicaoDTO[]>(`${API_CONFIG.baseUrl}instituicao/2019200/alunos`);
+        return this.http.get<Aprendiz_InstituicaoDTO[]>(`${API_CONFIG.baseUrl}instituicao/1/alunos`);
     }
     findInstituicoes(id:string) : Observable<Aprendiz_InstituicaoDTO[]>{
         return this.http.get<Aprendiz_InstituicaoDTO[]>(`${API_CONFIG.baseUrl}aprendiz/${id}`);

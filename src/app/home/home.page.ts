@@ -10,37 +10,33 @@ import { AuthService } from 'src/services/auth.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage /*implements OnInit*/{
-  
-  
-  creds : CredenciaisDTO = {
-     email: "diasreis@gmail.com",
-     senha: "senha5"
+export class HomePage /*implements OnInit*/ {
+
+
+  creds: CredenciaisDTO = {
+    email: "lhccorrea@hotmail.com",
+    senha: "123"
   };
 
-  constructor( 
-      private router: Router,
-      public menu:MenuController,
-      public auth: AuthService, 
+  constructor(
+    private router: Router,
+    public menu: MenuController,
+    public auth: AuthService,
       /*public navCtrl: NavController, 
-      public navParams: NavParams*/ ) { 
+      public navParams: NavParams*/ ) {
 
   }
 
-  ionViewWillEnter () {
+  ionViewWillEnter() {
     this.menu.swipeEnable(false);
     this.menu.enable(false);
     console.clear();
     console.log(localStorage.getItem('localUser'));
-    
-    this.auth.refreshToken()
-    .subscribe(response => {
-      this.auth.successfulLogin(response.headers.get('Authorization'));
-      this.router.navigateByUrl('alunos');
-    },
-    error => {});
-    
+
+
+
   }
+
 
   ionViewDidLeave() {
     this.menu.swipeEnable(true);
@@ -48,7 +44,12 @@ export class HomePage /*implements OnInit*/{
   }
 
   ionViewDidEnter() {
-    
+    this.auth.refreshToken()
+      .subscribe(response => {
+        this.auth.successfulLogin(response.headers.get('Authorization'));
+        this.router.navigateByUrl('alunos');
+      },
+        error => { });
 
   }
   /*ngOnInit(): void {
@@ -61,21 +62,21 @@ export class HomePage /*implements OnInit*/{
   }*/
 
 
-  login(){
+  login() {
     this.auth.authenticate(this.creds)
-    .subscribe(response => {
-      this.auth.successfulLogin(response.headers.get('Authorization'));
-      this.router.navigateByUrl('alunos');
-    },
-    error => {});
-    
+      .subscribe(response => {
+        this.auth.successfulLogin(response.headers.get('Authorization'));
+        this.router.navigateByUrl('alunos');
+      },
+        error => { });
+
   }
 
   signup() {
     this.router.navigateByUrl('signup');
 
   }
-  
+
 
 }
 
