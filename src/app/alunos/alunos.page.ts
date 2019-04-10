@@ -4,6 +4,7 @@ import { Aprendiz_InstituicaoDTO } from 'src/models/aprendiz_instituicao.dto';
 import { StorageService } from 'src/services/storage.service';
 import { AprendizCompletoDTO } from 'src/models/aprendizCompleto.dto';
 import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alunos',
@@ -16,7 +17,11 @@ export class AlunosPage implements OnInit {
   aluno:AprendizCompletoDTO;
   
 
-  constructor(public storage: StorageService, public aprendizService: AprendizService, public completoService: AprendizCompleto) { }
+  constructor(
+    public storage: StorageService,
+    public aprendizService: AprendizService,
+    public completoService: AprendizCompleto,
+    private router: Router) { }
 
 
 
@@ -34,14 +39,18 @@ export class AlunosPage implements OnInit {
       error => {
         console.log(error);
       });
-
-    this.aprendizService.findInstituicoes(this.aluno.id.toString()).subscribe(response => {
+*/
+    this.aprendizService.findAll().subscribe(response => {
       this.itens = response;
       console.log(response);
     },
       error => {
         console.log(error);
-      });*/
+      });
+  }
+  showInstituicao() {
+    this.router.navigateByUrl('instituicao');
+
   }
 
   
