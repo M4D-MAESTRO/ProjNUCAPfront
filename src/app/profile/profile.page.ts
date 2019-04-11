@@ -19,7 +19,6 @@ export class ProfilePage  {
   constructor( 
     public storage: StorageService,
     private router: Router,
-    //public navParams: NavParams, 
     public aprendizServiceCompleto: AprendizCompleto) { }
     
 

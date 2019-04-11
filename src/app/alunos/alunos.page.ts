@@ -26,20 +26,15 @@ export class AlunosPage implements OnInit {
 
 
   ngOnInit() {
+    
+  }
+
+  ionViewDidEnter(){
     console.clear();
     console.log("Nosso user" + localStorage.getItem('localUser'));
     let obj = JSON.parse(localStorage.getItem('localUser'));
     let teste = this.completoService.findByEmail(obj.email);
-
-    /*
-    this.completoService.findByEmail(obj.email).subscribe(response => {
-      this.aluno = response;
-      console.log(response);
-    },
-      error => {
-        console.log(error);
-      });
-*/
+    
     this.aprendizService.findAll().subscribe(response => {
       this.itens = response;
       console.log(response);
@@ -47,9 +42,10 @@ export class AlunosPage implements OnInit {
       error => {
         console.log(error);
       });
+
   }
-  showInstituicao() {
-    this.router.navigateByUrl('instituicao');
+  showInstituicao(/*alunos_id : string*/) {
+    this.router.navigateByUrl('instituicao'/*, {alunos_id: alunos_id}*/); //aula 134
 
   }
 

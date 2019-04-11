@@ -17,6 +17,7 @@ import { HttpModule } from '@angular/http';
 import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
 import { AuthInterceptorProvider } from 'src/interceptors/auth-interceptor';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { InstituicaoService } from 'src/services/domain/instituicao.service';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
     AuthService,
     StorageService,
     AprendizCompleto,
+    InstituicaoService
      
   ],
   bootstrap: [AppComponent]

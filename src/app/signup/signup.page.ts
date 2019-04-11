@@ -42,9 +42,9 @@ export class SignupPage implements OnInit {
       telefoneResp : [null, [Validators.required]],
       estadoId : [null, [Validators.required]],
       cidadeId : [null, [Validators.required]],
-      idTrabalho : [1, [Validators.required]],
-      idEscola : [1, [Validators.required]],
-      idEmpresaQuali : [1, [Validators.required]]
+      idTrabalho : [1 ],
+      idEscola : [1],
+      idEmpresaQuali : [1]
     });
   }
 

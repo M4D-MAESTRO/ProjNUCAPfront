@@ -15,7 +15,7 @@ export class HomePage /*implements OnInit*/ {
 
   creds: CredenciaisDTO = {
     email: "lhccorrea@hotmail.com",
-    senha: "123"
+    senha: "senha4"
   };
 
   constructor(
