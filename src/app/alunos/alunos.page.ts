@@ -44,7 +44,7 @@ export class AlunosPage implements OnInit {
       });
 
   }
-  showInstituicao(/*alunos_id : string*/) {
+  showInstituicao(itens: Aprendiz_InstituicaoDTO) {
     this.router.navigateByUrl('instituicao'/*, {alunos_id: alunos_id}*/); //aula 134
 
   }

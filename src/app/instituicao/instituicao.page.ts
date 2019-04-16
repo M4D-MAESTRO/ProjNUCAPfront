@@ -3,6 +3,7 @@ import { InstituicaoDTO } from 'src/models/instituicao.dto';
 import { InstituicaoService } from 'src/services/domain/instituicao.service';
 import { Router } from '@angular/router';
 import { API_CONFIG } from 'src/config/api.config';
+import { Aprendiz_InstituicaoDTO } from 'src/models/aprendiz_instituicao.dto';
 
 @Component({
   selector: 'app-instituicao',
@@ -11,11 +12,11 @@ import { API_CONFIG } from 'src/config/api.config';
 })
 export class InstituicaoPage implements OnInit {
 
-  items : InstituicaoDTO[];
+  items : Aprendiz_InstituicaoDTO[];
 
   constructor(
     public instituicaoService: InstituicaoService,
-    private router: Router) { }
+    private router: Router ) { }
 
   ngOnInit() { 
     /*let alunos_id = router.navigate.get('alunos_id')
@@ -24,7 +25,7 @@ export class InstituicaoPage implements OnInit {
       this.items = response['content'];
       this.loadImageUrls();
     },
-    error => {}); Aula 134*/ 
+    error => {}); //Aula 134*/ 
 
     /*loadImageUrls() {
       for (var i=0; i<this.items.length; i++) {
@@ -40,6 +41,7 @@ export class InstituicaoPage implements OnInit {
     
     this.items = [
     {
+      nome: "itens",
       dataInicio: "27/09/2018",
       dataTermino: "28/09/2018",
       percentualFalta: "40"   

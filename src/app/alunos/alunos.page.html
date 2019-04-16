@@ -10,11 +10,11 @@
 <ion-content padding>
   
   
-  <button ion-item *ngFor = "let item of itens" (click)="showInstituicao(item.id)">
+  <button ion-item *ngFor = "let item of itens" (click)="showInstituicao(itens)">
     <ion-thumbnail slot="start" >
       <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
     </ion-thumbnail>
-    <ion-label>{{ itens.nome }}</ion-label>
+    <ion-label>{{ item.nome }}</ion-label>
   </button>
 </ion-content>
 

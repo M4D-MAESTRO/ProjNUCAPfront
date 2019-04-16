@@ -1,7 +1,8 @@
 export interface Aprendiz_InstituicaoDTO{
+    nome:string;
     dataInicio:string;
     dataTermino:string;
     percentualFalta:string;
-    nome:string;
+    imageUrl? : string;
 
 }
