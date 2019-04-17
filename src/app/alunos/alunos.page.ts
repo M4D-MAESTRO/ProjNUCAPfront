@@ -5,6 +5,7 @@ import { StorageService } from 'src/services/storage.service';
 import { AprendizCompletoDTO } from 'src/models/aprendizCompleto.dto';
 import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
 import { Router } from '@angular/router';
+import { NOMEM } from 'dns';
 
 @Component({
   selector: 'app-alunos',
@@ -44,9 +45,14 @@ export class AlunosPage implements OnInit {
       });
 
   }
-  showInstituicao(itens: Aprendiz_InstituicaoDTO) {
-    this.router.navigateByUrl('instituicao'/*, {alunos_id: alunos_id}*/); //aula 134
+  showInstituicao(item: Aprendiz_InstituicaoDTO) {
+    let nome = item.nome;
+    let dataInicio = item.dataInicio;
+    let dataTermino = item.dataTermino ;
+    let percentualFalta = item.percentualFalta;
 
+    console.log("Meu item: " + nome);
+    this.router.navigate(['instituicao', {nome, dataInicio, dataTermino, percentualFalta}]);
   }
 
   
