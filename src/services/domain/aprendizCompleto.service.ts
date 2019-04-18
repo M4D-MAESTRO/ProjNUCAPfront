@@ -4,6 +4,7 @@ import { AprendizCompletoDTO } from "src/models/aprendizCompleto.dto";
 import { Observable } from "rxjs";
 import { StorageService } from "../storage.service";
 import { API_CONFIG } from "src/config/api.config";
+import { AprendizFullDTO } from "src/models/aprendizFull.dto";
 
 @Injectable()
 export  class AprendizCompleto {
@@ -12,8 +13,8 @@ export  class AprendizCompleto {
         
     }
 
-    findByEmail(email: string) : Observable<AprendizCompletoDTO> {
-        return this.http.get<AprendizCompletoDTO>(`${API_CONFIG.baseUrl}aprendiz/email?value=${email}`);
+    findByEmail(email: string) : Observable<AprendizFullDTO> {
+        return this.http.get<AprendizFullDTO>(`${API_CONFIG.baseUrl}aprendiz/email?value=${email}`);
         
     }
 

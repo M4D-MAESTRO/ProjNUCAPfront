@@ -5,7 +5,7 @@ import { StorageService } from 'src/services/storage.service';
 import { AprendizCompletoDTO } from 'src/models/aprendizCompleto.dto';
 import { AprendizCompleto } from 'src/services/domain/aprendizCompleto.service';
 import { Router } from '@angular/router';
-import { NOMEM } from 'dns';
+import { AprendizFullDTO } from 'src/models/aprendizFull.dto';
 
 @Component({
   selector: 'app-alunos',
@@ -15,8 +15,8 @@ import { NOMEM } from 'dns';
 export class AlunosPage implements OnInit {
 
   itens: Aprendiz_InstituicaoDTO[];
-  aluno:AprendizCompletoDTO;
-  
+  aluno: AprendizFullDTO;
+
 
   constructor(
     public storage: StorageService,
@@ -27,18 +27,42 @@ export class AlunosPage implements OnInit {
 
 
   ngOnInit() {
-    
+    let obj = JSON.parse(localStorage.getItem('localUser'));
+    this.completoService.findByEmail(obj.email).subscribe(response => {
+      this.aluno = {
+        id: response.id,
+        nome: response.nome,
+        telefone: response.telefone,
+        email: response.email,
+        endereco: null,
+        cpf: response.cpf,
+        dataNascimento: response.dataNascimento,
+        cpfResp: response.cpfResp,
+        telefoneResp: response.telefoneResp
+      };
+
+      console.log("Teste1: ");
+      console.log(this.aluno);
+    },
+      error => {
+        console.log(error);
+      });
+      
   }
 
-  ionViewDidEnter(){
-    console.clear();
-    console.log("Nosso user" + localStorage.getItem('localUser'));
-    let obj = JSON.parse(localStorage.getItem('localUser'));
-    let teste = this.completoService.findByEmail(obj.email);
+  ionViewDidLeave(){
+  }
+
+  ionViewDidEnter() {
+    //console.clear();
+    //console.log("Nosso user" + localStorage.getItem('localUser'));
     
-    this.aprendizService.findAll().subscribe(response => {
+    let id = this.aluno.id.toString();
+    
+
+    this.aprendizService.findAll(id).subscribe(response => {
       this.itens = response;
-      console.log(response);
+      //console.log(response);
     },
       error => {
         console.log(error);
@@ -48,13 +72,13 @@ export class AlunosPage implements OnInit {
   showInstituicao(item: Aprendiz_InstituicaoDTO) {
     let nome = item.nome;
     let dataInicio = item.dataInicio;
-    let dataTermino = item.dataTermino ;
+    let dataTermino = item.dataTermino;
     let percentualFalta = item.percentualFalta;
 
     console.log("Meu item: " + nome);
-    this.router.navigate(['instituicao', {nome, dataInicio, dataTermino, percentualFalta}]);
+    this.router.navigate(['instituicao', { nome, dataInicio, dataTermino, percentualFalta }]);
   }
 
-  
+
 
 }

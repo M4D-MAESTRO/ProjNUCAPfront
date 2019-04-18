@@ -4,9 +4,6 @@ import { InstituicaoService } from 'src/services/domain/instituicao.service';
 import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 import { API_CONFIG } from 'src/config/api.config';
 import { Aprendiz_InstituicaoDTO } from 'src/models/aprendiz_instituicao.dto';
-import { request } from 'https';
-import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-instituicao',

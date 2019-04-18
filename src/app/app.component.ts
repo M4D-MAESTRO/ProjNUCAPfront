@@ -17,14 +17,19 @@ export class AppComponent {
     },
     
     {
-      title: 'Alunos',
+      title: 'Instituições',
       url: '/alunos',
-      icon: 'home'
+      icon: 'md-briefcase'
+    },
+    {
+      title: 'Perfil',
+      url: '/perfil',
+      icon: 'md-contact'
     },
     {
       title: 'Sair',
       url: '',
-      icon: 'home'
+      icon: 'md-exit'
     },
 
     {

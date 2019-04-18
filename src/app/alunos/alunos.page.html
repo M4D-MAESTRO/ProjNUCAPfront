@@ -1,21 +1,19 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-menu-button slot="start" name="star"></ion-menu-button>
-        </ion-buttons>    
-    <ion-title>Alunos</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button slot="start" name="star"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Instituições </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  
-  
-  <button ion-item *ngFor = "let item of itens" (click)="showInstituicao(item)">
-    <ion-thumbnail slot="start" >
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+
+  <ion-button expand="full" size="large" ion-item *ngFor="let item of itens" (click)="showInstituicao(item)">
+    <ion-thumbnail slot="start">
+      <ion-icon slot="icon-only" name="logo-buffer"></ion-icon>
     </ion-thumbnail>
-    <ion-label>{{ item.nome }}</ion-label>
-  </button>
+    <ion-label text-wrap> {{ item.nome }}</ion-label>
+  </ion-button>
+
 </ion-content>
-
-

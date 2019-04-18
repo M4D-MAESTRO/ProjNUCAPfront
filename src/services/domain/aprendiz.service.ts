@@ -11,8 +11,8 @@ export class AprendizService{
 
     }
 
-    findAll() : Observable<Aprendiz_InstituicaoDTO[]>{
-        return this.http.get<Aprendiz_InstituicaoDTO[]>(`${API_CONFIG.baseUrl}aprendiz/5/instituicoes`);
+    findAll(id:string) : Observable<Aprendiz_InstituicaoDTO[]>{
+        return this.http.get<Aprendiz_InstituicaoDTO[]>(`${API_CONFIG.baseUrl}aprendiz/${id}/instituicoes`);
     }
     findInstituicoes(id:string) : Observable<Aprendiz_InstituicaoDTO[]>{
         return this.http.get<Aprendiz_InstituicaoDTO[]>(`${API_CONFIG.baseUrl}aprendiz/${id}`);
