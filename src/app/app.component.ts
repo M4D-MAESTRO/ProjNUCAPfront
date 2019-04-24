@@ -36,6 +36,11 @@ export class AppComponent {
       title: 'Teste',
       url: '/teste',
       icon: 'Teste'
+    },
+     {
+      title: 'Alunos',
+      url: '/alunosinstituicao',
+      icon: 'md-briefcase'
     }
 
   ];

@@ -38,16 +38,15 @@ export class SignupPage implements OnInit {
       complemento : ['Apto 3', []],
       bairro : ['Copacabana', [Validators.required]],
       telefone : ['977261827', [Validators.required]],
-      cpfResp : [null, [Validators.required]],
-      telefoneResp : [null, [Validators.required]],
+      cpfResp : ['', [Validators.required]],
+      telefoneResp : ['', [Validators.required]],
       estadoId : [null, [Validators.required]],
       cidadeId : [null, [Validators.required]],
-      idTrabalho : [1 ],
-      idEscola : [1],
-      idEmpresaQuali : [1]
+      idTrabalho : [1, [] ],
+      idEscola : [1, []],
+      idEmpresaQuali : [1, []]
     });
-  }
-
+  } 
   updateCidades() {
     let estado_id = this.formGroup.value.estadoId;
     this.cidadeService.findAll(estado_id)
@@ -85,13 +84,23 @@ export class SignupPage implements OnInit {
 
   }
 
+  ionViewWillEnter(){
+    
+  }
+
   ngOnInit() {
     this.estadoService.findAll().subscribe(response => {
       this.estados = response;
+      console.log(this.estados);
       this.formGroup.controls.estadoId.setValue(this.estados[0].id); 
       this.updateCidades();
     },
     error => {});
+
+    console.log(this.estados);
+    
   }
+
+
 
 }

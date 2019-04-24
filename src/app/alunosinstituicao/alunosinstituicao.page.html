@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button slot="start" name="star"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Alunos </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+ <ion-button expand="full" size="large" ion-item *ngFor="let item of itens" >
+ <ion-thumbnail slot="start">
+      <ion-icon slot="icon-only" name="logo-buffer"></ion-icon>
+    </ion-thumbnail>
+    <ion-label text-wrap> {{ dados.nome }}</ion-label>
+  </ion-button>
+
+</ion-content>
