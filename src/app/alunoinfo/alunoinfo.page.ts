@@ -6,11 +6,11 @@ import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 import { Aprendiz_InstituicaoDTO } from 'src/models/aprendiz_instituicao.dto';
 
 @Component({
-  selector: 'app-instituicao',
-  templateUrl: './instituicao.page.html',
-  styleUrls: ['./instituicao.page.scss'],
+  selector: 'app-alunoinfo',
+  templateUrl: './alunoinfo.page.html',
+  styleUrls: ['./alunoinfo.page.scss'],
 })
-export class InstituicaoPage implements OnInit {
+export class AlunoinfoPage implements OnInit {
 
   private items: Aprendiz_InstituicaoDTO;
 

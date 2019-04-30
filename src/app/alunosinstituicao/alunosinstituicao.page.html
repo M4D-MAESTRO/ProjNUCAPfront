@@ -9,11 +9,11 @@
 
 <ion-content padding>
 
- <ion-button expand="full" size="large" ion-item *ngFor="let item of itens" >
+ <ion-button expand="full" size="large" ion-item *ngFor="let item of itens" (click)="showAlunoInstituicao(item)">
  <ion-thumbnail slot="start">
       <ion-icon slot="icon-only" name="logo-buffer"></ion-icon>
     </ion-thumbnail>
-    <ion-label text-wrap> {{ dados.nome }}</ion-label>
+    <ion-label text-wrap> {{ item.nome }} </ion-label>
   </ion-button>
 
 </ion-content>
