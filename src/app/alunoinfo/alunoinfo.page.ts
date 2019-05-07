@@ -16,22 +16,22 @@ export class AlunoinfoPage implements OnInit {
 
   constructor(
     public instituicaoService: InstituicaoService,
-    private router: Router, private route: ActivatedRoute) {}
+    private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     //console.log(this.route.snapshot.paramMap.get("nome"));
-    
+
     let nome = this.route.snapshot.paramMap.get("nome");
     let dataInicio = this.route.snapshot.paramMap.get("dataInicio");
     let dataTermino = this.route.snapshot.paramMap.get("dataTermino");
     let percentualFalta = this.route.snapshot.paramMap.get("percentualFalta");
 
-    this.items = 
+    this.items =
       {
         nome: nome.substring(0, nome.indexOf('-')),
         dataInicio: dataInicio,
         dataTermino: dataTermino,
-        percentualFalta: percentualFalta   
+        percentualFalta: percentualFalta
       }
 
     /*
@@ -50,4 +50,15 @@ export class AlunoinfoPage implements OnInit {
     } Aula 135, só liberar quando por as imagens no bucket*/
 
   };
+
+  alterarFaltas(faltas: string) {
+    let falta = parseInt(faltas);
+    if (faltas == 'null') {
+      falta = 1;
+    } else {
+      falta++;
+    }
+    this.items.percentualFalta = falta.toString();
+
+  }
 }
