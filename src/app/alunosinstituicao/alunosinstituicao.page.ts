@@ -20,7 +20,7 @@ export class AlunosinstituicaoPage implements OnInit {
 
   ngOnInit() {
     let obj = JSON.parse(localStorage.getItem('localUser'));
-    this.completoService.findByEmail("centroedu@gmail.com"/*obj.email*/).subscribe(response => {
+    this.completoService.findByEmail(obj.email).subscribe(response => {
       this.dados = {
         id: response.id,
         nome: response.nome,
@@ -46,10 +46,10 @@ export class AlunosinstituicaoPage implements OnInit {
     //console.clear();
     //console.log("Nosso user" + localStorage.getItem('localUser'));
     
-    //let id = this.dados.id.toString();
+    let id = this.dados.id.toString();
     
 
-    this.completoService.findAll("2").subscribe(response => {
+    this.completoService.findAll(id).subscribe(response => {
       this.itens = response;
       console.log(response);
     },
