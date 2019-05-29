@@ -39,34 +39,6 @@ export class PerfilPage implements OnInit {
       });
       
   }
-
-
-   /* let id = this.route.snapshot.paramMap.get("id");
-    let nome = this.route.snapshot.paramMap.get("nome");
-    let telefone = this.route.snapshot.paramMap.get("telefone");
-    let email = this.route.snapshot.paramMap.get("email");
-    let endereco = this.route.snapshot.paramMap.get("endereco");
-    let cpf = this.route.snapshot.paramMap.get("cpf");
-    let dataNascimento = this.route.snapshot.paramMap.get("dataNascimento");
-    let cpfResp = this.route.snapshot.paramMap.get("cpfResp");
-    let telefoneResp = this.route.snapshot.paramMap.get("telefoneResp"); */
-    
-    
-
-   /* this.dados = {
-      id: id,
-      nome:nome,
-      telefone: telefone,
-      email: email,
-      endereco: endereco,
-      cpf: cpf,
-      dataNascimento: dataNascimento,
-      cpfResp: cpfResp,
-      telefoneResp: telefoneResp
-
-
-    }*/
-
     
   }
 
