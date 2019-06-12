@@ -16,9 +16,10 @@ const routes: Routes = [
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'teste', loadChildren: './teste/teste.module#TestePageModule' },
-  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },  { path: 'instituicao', loadChildren: './instituicao/instituicao.module#InstituicaoPageModule' },
+  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
+  { path: 'instituicao', loadChildren: './instituicao/instituicao.module#InstituicaoPageModule' },
   { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
-  { path: 'alunosinstituicao', loadChildren: './alunosinstituicao/alunosinstituicao.module#AlunosinstituicaoPageModule' },
+  //{ path: 'alunosinstituicao', loadChildren: './alunosinstituicao/alunosinstituicao.module#AlunosinstituicaoPageModule' },
   { path: 'alunoinfo', loadChildren: './alunoinfo/alunoinfo.module#AlunoinfoPageModule' }
 
 

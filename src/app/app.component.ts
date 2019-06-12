@@ -25,12 +25,6 @@ export class AppComponent {
       title: 'Sair',
       url: '',
       icon: 'md-exit'
-    },
-
-     {
-      title: 'Alunos',
-      url: '/alunosinstituicao',
-      icon: 'md-briefcase'
     }
 
   ];
