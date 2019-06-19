@@ -31,6 +31,10 @@ export class ErrorInterceptor implements HttpInterceptor {
             console.log(errorObj);
 
             switch(errorObj.status) {
+                case 400:
+                this.handle400();
+                break;
+
                 case 401:
                 this.handle401();
                 break;
@@ -53,6 +57,16 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     handle403() {
         this.storage.setLocalUser(null);
+    }
+
+    async handle400() {
+        const alert = await this.alertCtrl.create({
+            header: 'Erro 400:',
+            subHeader: 'Erro de validação',
+            message: 'Email Já cadastrado',
+            buttons: ['OK']
+        });
+        await alert.present()
     }
 
     async handle401() {

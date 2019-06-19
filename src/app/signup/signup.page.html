@@ -71,14 +71,14 @@
 
   <ion-item>
     <ion-label stacked>Estado*: </ion-label>
-    <ion-select formControlName="estadoId" (ionChange)="updateCidades()">
+    <ion-select formControlName="idEstado" (ionChange)="updateCidades()">
       <ion-select-option *ngFor = "let estado of estados; let f = first" [value] = "estado.id" [selected] = "f"> {{estado.nome}} </ion-select-option>
     </ion-select>
   </ion-item>
 
   <ion-item> 
     <ion-label stacked>Cidade*: </ion-label>
-    <ion-select formControlName="cidadeId">
+    <ion-select formControlName="idCidade">
       <ion-select-option *ngFor = "let cidade of cidades" [value] = "cidade.id"> {{cidade.nome}} </ion-select-option>
     </ion-select>
   </ion-item>

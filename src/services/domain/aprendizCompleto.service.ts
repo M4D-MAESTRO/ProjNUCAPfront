@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { StorageService } from "../storage.service";
 import { API_CONFIG } from "src/config/api.config";
 import { AprendizFullDTO } from "src/models/aprendizFull.dto";
+import { AprendizNewDTO } from "src/models/aprendizNew.dto";
 
 @Injectable()
 export  class AprendizCompleto {
@@ -25,7 +26,8 @@ export  class AprendizCompleto {
         return this.http.get(url, {responseType : 'blob'});
     }*/
 
-    insert(obj : AprendizCompletoDTO) {
+    insert(obj : AprendizNewDTO) {
+        console.log(obj);
         return this.http.post(
             `${API_CONFIG.baseUrl}aprendiz`, 
             obj,

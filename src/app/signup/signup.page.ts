@@ -31,46 +31,48 @@ export class SignupPage implements OnInit {
 
     this.formGroup = this.formBuilder.group({
       nome: ['Henrique Castrado',[Validators.required, Validators.minLength(3), Validators.maxLength(120)] ],
-      email: ['Henri@hotmail.com',[Validators.required, Validators.email] ],
+      email: ['Henri10@hotmail.com',[Validators.required, Validators.email] ],
       cpf : ['06134596280', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
       senha : ['123', [Validators.required]],
       endereco : ['Rua Via', [Validators.required]],
       complemento : ['Apto 3', []],
       bairro : ['Copacabana', [Validators.required]],
       telefone : ['977261827', [Validators.required]],
-      cpfResp : ['', [Validators.required]],
-      telefoneResp : ['', [Validators.required]],
-      estadoId : [null, [Validators.required]],
-      cidadeId : [null, [Validators.required]],
-      idTrabalho : [1, [] ],
-      idEscola : [1, []],
-      idEmpresaQuali : [1, []]
+      cpfResp : ['111', [Validators.required]],
+      telefoneResp : ['999', [Validators.required]],
+      idEstado : [2, [Validators.required]],
+      idCidade : [1, [Validators.required]],
+      idTrabalho : [null, [] ],
+      idEscola : [null, []],
+      idEmpresaQuali : [null, []]
     });
   } 
   updateCidades() {
-    let estado_id = this.formGroup.value.estadoId;
+    let estado_id = this.formGroup.value.idEstado;
     this.cidadeService.findAll(estado_id)
     .subscribe(response => {
       this.cidades = response ;
-      this.formGroup.controls.cidadeId.setValue(null);
+     // console.log(this.cidades);
+      this.formGroup.controls.idCidade.setValue(null);
     },
     error => {});
   }
 
   signupUser() {
-    
+    //console.log(this.formGroup.value)
     this.aprendizService.insert(this.formGroup.value)
     .subscribe(response => {
-      this.showInsertOk();
+      this.showInsertOk(this.formGroup.value.nome + ' cadastrado com sucesso!' + 
+      '<br>Um email foi enviado para: ' + this.formGroup.value.email);
     },
     error => {});
     
   }
 
-  async showInsertOk() {
+  async showInsertOk(mensagem:string) {
     const alert = await this.alertCtrl.create({
       header: 'Sucesso!',
-      message: 'Cadastro efetuado com sucesso',
+      message: mensagem,
       buttons: [
         {
         text: 'ok',
@@ -92,7 +94,7 @@ export class SignupPage implements OnInit {
     this.estadoService.findAll().subscribe(response => {
       this.estados = response;
       console.log(this.estados);
-      this.formGroup.controls.estadoId.setValue(this.estados[0].id); 
+      this.formGroup.controls.idEstado.setValue(this.estados[0].id); 
       this.updateCidades();
     },
     error => {});
